@@ -1,38 +1,30 @@
 [package]
 name = "autopush_endpoint"
 version = "0.1.0"
-authors = ["jrconlin <me+crypt@jrconlin.com>"]
+authors = ["jrconlin <me+crypt@jrconlin.com>", "Mark Drobnak <mdrobnak@mozilla.com>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-actix-http = "1"
-actix-web = "2"
-actix-rt = "1"
-actix-cors = "0.2"
+actix-http = "1.0"
+actix-web = "2.0"
+actix-rt = "1.0"
+actix-cors = "0.2.0"
+autopush_common = { git = "https://github.com/mozilla-services/autopush-rs" }
 cadence = "0.19.1"
-config = "0.9.3"
-docopt = "1.1"
-diesel = { version = "1.4.3", features = ["mysql", "r2d2"] }
-diesel_logger = "0.1.0"
-diesel_migrations = { version = "1.4.0", features = ["mysql"] }
-env_logger = "0.7.1"
-failure = "0.1"
+config = "0.10.1"
+docopt = "1.1.0"
+failure = "0.1" # TODO: replace with anyhow or thiserror
 futures = { version = "0.3", features = ["compat"] }
 lazy_static = "1.4.0"
-log = { version = "0.4.8", features = ["max_level_info", "release_max_level_info"] }
 sentry = { version = "0.18", features = ["with_curl_transport"] }
-serde = "1.0"
-serde_derive = "1.0"
-serde_json = { version = "1.0", features = ["arbitrary_precision"] }
-serde_urlencoded = "0.6.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
 slog = { version = "2.5", features = ["max_level_trace", "release_max_level_error", "dynamic-keys"] }
 slog-async = "2.4"
+# TODO: document in operation notes that envlogger functionality is available
 slog-envlogger = "2.2.0"
 slog-mozlog-json = "0.1"
 slog-scope = "4.3"
 slog-stdlog = "4.0"
 slog-term = "2.5"
 url = "2.1"
-uuid = { version = "0.8.1", features = ["serde", "v4"] }
